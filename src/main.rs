@@ -1,22 +1,13 @@
-trait Animal {
-    fn baby_name() -> String;
-}
-
-struct Dog;
-
-impl Dog {
-    fn baby_name() -> String {
-        String::from("Spot")
-    }
-}
-
-impl Animal for Dog {
-    fn baby_name() -> String {
-        String::from("puppy")
-    }
-}
-
 fn main() {
-    println!("A baby dog is called a {}", Dog::baby_name());
-    println!("A baby dog is called a {}", <Dog as Animal>::baby_name()); // 调用特征方法
+    use std::collections::HashMap;
+
+    let teams_list = vec![
+        ("中国队".to_string(), 100),
+        ("美国队".to_string(), 10),
+        ("日本队".to_string(), 50),
+    ];
+
+    let teams_map: HashMap<_,_> = teams_list.into_iter().collect();
+    
+    println!("{:?}",teams_map)
 }
